@@ -9,9 +9,6 @@ const studentRouter = express.Router();
 studentRouter.get('/', studentController.showStudentList);
 studentRouter.get('/add', studentController.showAddForm);
 
-studentRouter.get('/:class', studentController.showStudentInClass);
-
-
 studentRouter.post('/add', upload.none(), studentController.addEmployee);
 
 studentRouter.get('/detail/:id', studentController.showStudentDetail);

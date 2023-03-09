@@ -9,11 +9,6 @@ class studentController {
         let students = await student_1.default.find().sort({ pointPractice: 1 });
         res.render('list', { students: students });
     }
-    static async showStudentInClass(req, res) {
-        let classId = req.params.classId;
-        let students = await student_1.default.find({ classId: classId });
-        res.render('list', { students: students });
-    }
     static async showStudentDetail(req, res) {
         let id = req.params.id;
         let student = await student_1.default.findOne({ _id: id });

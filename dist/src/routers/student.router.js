@@ -10,7 +10,6 @@ let upload = (0, multer_1.default)();
 const studentRouter = express_1.default.Router();
 studentRouter.get('/', student_controller_1.default.showStudentList);
 studentRouter.get('/add', student_controller_1.default.showAddForm);
-studentRouter.get('/:class', student_controller_1.default.showStudentInClass);
 studentRouter.post('/add', upload.none(), student_controller_1.default.addEmployee);
 studentRouter.get('/detail/:id', student_controller_1.default.showStudentDetail);
 studentRouter.get('/update/:id', student_controller_1.default.showUpdateForm);

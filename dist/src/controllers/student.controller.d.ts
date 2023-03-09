@@ -1,6 +1,5 @@
 declare class studentController {
     static showStudentList(req: any, res: any): Promise<void>;
-    static showStudentInClass(req: any, res: any): Promise<void>;
     static showStudentDetail(req: any, res: any): Promise<void>;
     static showUpdateForm(req: any, res: any): Promise<void>;
     static updateStudentInfo(req: any, res: any): Promise<void>;
