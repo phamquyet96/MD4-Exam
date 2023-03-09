@@ -14,6 +14,15 @@ class studentController {
         let student = await student_1.default.findOne({ _id: id });
         res.render('detail', { student: student });
     }
+    static async showAddForm(req, res) {
+        res.render('add');
+    }
+    static async addEmployee(req, res) {
+        let { name, classId, pointPractice, pointTheory, evaluate, description } = req.body;
+        let student = new student_1.default({ name, classId, pointPractice, pointTheory, evaluate, description });
+        await student.save();
+        res.redirect('/student');
+    }
     static async showUpdateForm(req, res) {
         let id = req.params.id;
         let student = await student_1.default.findOne({ _id: id });
@@ -36,15 +45,6 @@ class studentController {
         let id = req.params.id;
         await student_1.default.findOneAndDelete({ _id: id });
         console.log('Deleted Successful');
-        res.redirect('/student');
-    }
-    static async showAddForm(req, res) {
-        res.render('add');
-    }
-    static async addEmployee(req, res) {
-        let { name, classId, pointPractice, pointTheory, evaluate, description } = req.body;
-        let student = new student_1.default({ name, classId, pointPractice, pointTheory, evaluate, description });
-        await student.save();
         res.redirect('/student');
     }
 }
